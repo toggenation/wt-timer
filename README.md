@@ -1,11 +1,12 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # WT-Timer
 Count-Up Timer in React with ability to add minutes and seconds to start time.
 
 ----
+# Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
 ## Available Scripts
 
 In the project directory, you can run:
