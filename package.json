@@ -1,22 +1,37 @@
 {
   "name": "timer",
   "version": "0.1.0",
+  "author": {
+    "name": "James McDonald",
+    "email": "james@toggen.com.au",
+    "url": "https://toggen.com.au"
+  },
+  "description": "Count-up Watchtower Timer",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "bootstrap": "^5.2.0",
+    "bootstrap-icons": "^1.9.1",
     "dayjs": "^1.11.4",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.4.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+  "main": "./public/electron.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron:start": "concurrently -k \"cross-env BROWSER=none npm start\" \"wait-on tcp:127.0.0.1:3000 -d 5000 -v && electronmon .\"",
+    "electron:package:mac": "npm run build && electron-builder -m -c.extraMetadata.main=build/electron.js",
+    "electron:package:win": "npm run build && electron-builder -w -c.extraMetadata.main=build/electron.js",
+    "electron:package:linux": "npm run build && electron-builder -l -c.extraMetadata.main=build/electron.js"
   },
   "eslintConfig": {
     "extends": [
@@ -24,16 +39,42 @@
       "react-app/jest"
     ]
   },
+  "build": {
+    "appId": "com.electron.wt-timer",
+    "productName": "WT Timer",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "public"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "deb"
+    }
+  },
   "browserslist": {
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "last 1 electron version"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 electron version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^7.3.0",
+    "cross-env": "^7.0.3",
+    "electron": "^19.0.10",
+    "electron-builder": "^23.3.3",
+    "electron-is-dev": "^2.0.0",
+    "electronmon": "^2.0.2",
+    "foreman": "^3.0.1",
+    "wait-on": "^6.0.1"
   }
 }
