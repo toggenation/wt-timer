@@ -5,6 +5,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Timer from './timer/Timer';
 import { pad } from './timer/utils'
+import "./timer/styles.css";
 
 function App() {
   const [time, setTime] = useState(0);
@@ -43,7 +44,7 @@ function App() {
   }, [])
 
   return (
-    <Row className='mt-3'>
+    <Row style={{ marginTop: "38px" }}>
       <Col className='col-auto ms-4'>
 
         <InputGroup className="mb-0">
@@ -58,12 +59,12 @@ function App() {
           />
         </InputGroup>
       </Col>
-      <div className="d-flex align-items-center" style={{
+      <div className="d-flex align-items-center allowDrag" style={{
         width: "3.5em",
         fontSize: '28pt',
         lineHeight: '28pt'
       }}>
-        <div className='align-middle'>{minuteSeconds(time + startTime)}</div>
+        {minuteSeconds(time + startTime)}
       </div>
       <Col className="col-auto">
         <Button variant="success" onClick={() => runTimer()}>

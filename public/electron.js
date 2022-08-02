@@ -9,6 +9,8 @@ function createWindow() {
         width: 580,
         height: 100,
         title: "WT Timer",
+        titleBarStyle: 'hidden',
+        // frame: false,
         // Set the path of an additional "preload" script that can be used to
         // communicate between node-land and browser-land.
         webPreferences: {
