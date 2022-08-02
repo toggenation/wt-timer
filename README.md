@@ -9,7 +9,3 @@ npm run  electron:start
 ```sh
 npm run  electron:package:mac
 ```
-
----
--
-
