@@ -41,6 +41,7 @@ function App() {
   useEffect(() => {
     const timer = new Timer();
     setTimer(timer)
+    return () => setTimer(null);
   }, [])
 
   return (
