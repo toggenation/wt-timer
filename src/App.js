@@ -53,11 +53,11 @@ function App() {
             placeholder="00:00"
             aria-label="Start time"
             title="Start time"
-            htmlSize={4}
+            htmlSize={5}
             maxLength={5}
             as="input"
             size="sm"
-            style={{ maxWidth: "4.05em" }}
+            style={{ maxWidth: "4.5em" }}
             aria-describedby="basic-addon1"
             onChange={(e) => { setStartTime(minSecToSeconds(e.target.value)) }}
           />
@@ -68,7 +68,7 @@ function App() {
           maxWidth: "3.3em",
           width: "3.3em",
           fontSize: '28pt',
-          lineHeight: '20pt'
+          lineHeight: '22pt'
         }}>
         {minuteSeconds(time + startTime)}
       </Col>
