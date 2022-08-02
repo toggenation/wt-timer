@@ -2,11 +2,16 @@ body {
     -webkit-app-region: drag;
 }
 
-button {
+button,
+input {
     -webkit-app-region: no-drag;
 }
 
 .allowDrag {
     -webkit-user-select: none;
     -webkit-app-region: drag;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }

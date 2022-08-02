@@ -45,9 +45,8 @@ function App() {
   }, [])
 
   return (
-    <Row style={{ marginTop: "38px" }}>
-      <Col className='col-auto ms-4'>
-
+    <Row className="vh-100">
+      <Col className='col-auto ms-4 pt-4'>
         <InputGroup className="mb-0">
           {/* <InputGroup.Text id="basic-addon1">x</InputGroup.Text> */}
           <Form.Control
@@ -55,31 +54,37 @@ function App() {
             aria-label="Start time"
             title="Start time"
             htmlSize={5}
+            maxLength={5}
+            as="input"
+            size="sm"
+            style={{ maxWidth: "4.5em" }}
             aria-describedby="basic-addon1"
             onChange={(e) => { setStartTime(minSecToSeconds(e.target.value)) }}
           />
         </InputGroup>
       </Col>
-      <div className="d-flex align-items-center allowDrag" style={{
-        width: "3.5em",
-        fontSize: '28pt',
-        lineHeight: '28pt'
-      }}>
+      <Col className="pt-4 align-items-center allowDrag px-auto"
+        style={{
+          maxWidth: "3.3em",
+          width: "3.3em",
+          fontSize: '28pt',
+          lineHeight: '22pt'
+        }}>
         {minuteSeconds(time + startTime)}
-      </div>
-      <Col className="col-auto">
-        <Button variant="success" onClick={() => runTimer()}>
+      </Col>
+      <Col className="col-auto pt-4">
+        <Button size="sm" variant="success" onClick={() => runTimer()}>
           <i className="bi bi-play"></i>{' '}Start
         </Button>
       </Col>
-      <Col className="col-auto">
-        <Button variant="danger" onClick={() => stopTimer()}>
+      <Col className="col-auto pt-4">
+        <Button size="sm" variant="danger" onClick={() => stopTimer()}>
           <i className="bi bi-stop"></i>{' '}
           Stop
         </Button>
       </Col>
-      <Col className="col-auto">
-        <Button variant="warning" onClick={() => resetTimer()}>
+      <Col className="col-auto pt-4">
+        <Button size="sm" variant="warning" onClick={() => resetTimer()}>
           <i className="bi bi-arrow-counterclockwise"></i>{' '}
           Reset</Button>
       </Col>

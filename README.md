@@ -1,7 +1,10 @@
 # WT-Timer
 Count-Up Timer in React with ability to add minutes and seconds to start time.
 
-## Download
+![Screenshot of WT-Timer](./src/timer/screenshot.png)
+
+
+## Build it yourself
 ```
 git clone https://github.com/toggenation/wt-timer.git
 ```
@@ -16,12 +19,12 @@ npm run  electron:start
 Built files are placed in the `dist/` folder
 
 ```sh
-# MacOS
+# mac
 npm run  electron:package:mac
 
-# Linux
-npm run  electron:package:linux
+# macOS
+npm run electron:package:mac
 
-# Windows
-npm run  electron:package:win
+# Linux
+npm run electron:package:linux
 ```
