@@ -6,11 +6,11 @@ const url = require("url");
 // Create the native browser window.
 function createWindow() {
     const mainWindow = new BrowserWindow({
-        width: 580,
-        height: 100,
+        width: 500,
+        height: 78,
         title: "WT Timer",
         titleBarStyle: 'hidden',
-        // frame: false,
+        frame: false,
         // Set the path of an additional "preload" script that can be used to
         // communicate between node-land and browser-land.
         webPreferences: {
