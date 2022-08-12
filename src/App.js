@@ -9,8 +9,10 @@ import "./timer/styles.css";
 
 function App() {
   const [time, setTime] = useState(0);
-  const [timer, setTimer] = useState();
+  const [timer, setTimer] = useState(null);
   const [startTime, setStartTime] = useState(0);
+  const [resetCount, setResetCount] = useState(0);
+  const [startTimeControl, setStartTimeControl] = useState('');
 
   const minSecToSeconds = (time) => {
     const [minutes, seconds] = time.split(":");
@@ -26,10 +28,27 @@ function App() {
   const stopTimer = () => {
     timer.stop()
   }
+
   const resetTimer = () => {
+    const interval = setTimeout(() => {
+      setResetCount(0);
+    }, 500)
+
+    if (resetCount > 0) {
+      setResetCount(0)
+      setStartTimeControl('')
+      setStartTime(0);
+      clearTimeout(interval);
+    } else {
+      setResetCount(resetCount => resetCount + 1)
+    }
+
     timer.reset();
   }
 
+  const handleStartTimeChange = (text) => {
+    setStartTimeControl(text);
+  }
   const runTimer = () => {
     timer.start();
     setInterval(() => {
@@ -57,9 +76,13 @@ function App() {
             maxLength={5}
             as="input"
             size="sm"
+            value={startTimeControl}
             style={{ maxWidth: "4.5em" }}
             aria-describedby="basic-addon1"
-            onChange={(e) => { setStartTime(minSecToSeconds(e.target.value)) }}
+            onChange={(e) => {
+              setStartTime(minSecToSeconds(e.target.value))
+              handleStartTimeChange(e.target.value);
+            }}
           />
         </InputGroup>
       </Col>
